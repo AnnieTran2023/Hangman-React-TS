@@ -13,7 +13,7 @@ export function HangmanWord() {
       }}
     >
       {word.split("").map((letter, index) => (
-        <span style={{ borderBottom: ".1em solid black" }}>
+        <span style={{ borderBottom: ".1em solid black" }} key={index}>
           <span
             style={{
               visibility: guessLetters.includes(letter) ? "visible" : "hidden",
