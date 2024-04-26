@@ -6,8 +6,8 @@ const HEAD = (
       borderRadius: "50%",
       border: "7px solid black",
       position: "absolute",
-      top: "40px",
-      right: "-28px",
+      top: "33px",
+      right: "-20px",
     }}
   ></div>
 );
@@ -19,7 +19,7 @@ const BODY = (
       height: "120px",
       background: "black",
       position: "absolute",
-      top: "102px",
+      top: "82px",
       right: "0px",
     }}
   ></div>
@@ -31,7 +31,7 @@ const LEFTHAND = (
       height: "55px",
       background: "black",
       position: "absolute",
-      top: "95px",
+      top: "75px",
       right: "20px",
       transform: "rotate(45deg)",
     }}
@@ -44,7 +44,7 @@ const RIGHTHAND = (
       height: "55px",
       background: "black",
       position: "absolute",
-      top: "95px",
+      top: "75px",
       right: "-20px",
       transform: "rotate(-45deg)",
     }}
@@ -58,7 +58,7 @@ const LEFTLEG = (
       height: "55px",
       background: "black",
       position: "absolute",
-      top: "208px",
+      top: "188px",
       right: "17px",
       transform: "rotate(45deg)",
     }}
@@ -71,21 +71,22 @@ const RIGHTLEG = (
       height: "55px",
       background: "black",
       position: "absolute",
-      top: "208px",
+      top: "188px",
       right: "-17px",
       transform: "rotate(-45deg)",
     }}
   ></div>
 );
-export function HangmanDrawing() {
+
+const BODY_PARTS = [HEAD, BODY, LEFTHAND, RIGHTHAND, LEFTLEG, RIGHTLEG];
+
+type HangmanDrawingProps = {
+  numberOfGuesses: number;
+};
+export function HangmanDrawing({ numberOfGuesses }: HangmanDrawingProps) {
   return (
     <div style={{ position: "relative" }}>
-      {HEAD}
-      {BODY}
-      {LEFTHAND}
-      {RIGHTHAND}
-      {LEFTLEG}
-      {RIGHTLEG}
+      {BODY_PARTS.slice(0, numberOfGuesses)}
       <div
         style={{
           height: "40px",
