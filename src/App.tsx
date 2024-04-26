@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./App.css";
+
 import words from "./wordList.json";
 import { HangmanDrawing } from "./HangmanDrawing";
 import { HangmanWord } from "./HangmanWord";
@@ -26,7 +26,9 @@ function App() {
       <div style={{ fontSize: "2rem", textAlign: "center" }}>Hangman Game</div>
       <HangmanDrawing />
       <HangmanWord />
-      <Keyboard />
+      <div style={{ alignSelf: "stretch" }}>
+        <Keyboard />
+      </div>
     </div>
   );
 }
