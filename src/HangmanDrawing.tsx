@@ -9,7 +9,32 @@ const HEAD = (
       top: "33px",
       right: "-20px",
     }}
-  ></div>
+  >
+    <div
+      style={{
+        width: "7px",
+        height: "7px",
+        borderRadius: "50%",
+        border: "3px solid black",
+        position: "absolute",
+        background: "black",
+        top: "10px",
+        right: "5px",
+      }}
+    ></div>
+    <div
+      style={{
+        width: "7px",
+        height: "7px",
+        borderRadius: "50%",
+        border: "3px solid black",
+        position: "absolute",
+        background: "black",
+        top: "10px",
+        left: "5px",
+      }}
+    ></div>
+  </div>
 );
 
 const BODY = (
@@ -84,7 +109,6 @@ type HangmanDrawingProps = {
   numberOfGuesses: number;
 };
 export function HangmanDrawing({ numberOfGuesses }: HangmanDrawingProps) {
-  
   return (
     <div style={{ position: "relative" }}>
       {BODY_PARTS.slice(0, numberOfGuesses)}

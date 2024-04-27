@@ -28,6 +28,7 @@ const KEYS = [
 ];
 
 type KeyboardProps = {
+  disabled: boolean;
   activeLetters: string[];
   inactiveLetters: string[];
   addGuessLetter: (letter: string) => void;
@@ -35,6 +36,7 @@ type KeyboardProps = {
 
 export function Keyboard({
   activeLetters,
+  disabled = false,
   inactiveLetters,
   addGuessLetter,
 }: KeyboardProps) {
@@ -60,7 +62,7 @@ export function Keyboard({
               ${isInactive ? "opacity-50 cursor-not-allowed" : ""}
               border border-gray-300
             `}
-            disabled={isInactive}
+            disabled={isInactive || isActive || disabled}
           >
             <span className="block w-full h-full transition-all ease-in duration-75">
               {letter}
