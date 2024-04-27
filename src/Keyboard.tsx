@@ -27,26 +27,47 @@ const KEYS = [
   "Z",
 ];
 
-export function Keyboard() {
+type KeyboardProps = {
+  activeLetters: string[];
+  inactiveLetters: string[];
+  addGuessLetter: (letter: string) => void;
+};
+
+export function Keyboard({
+  activeLetters,
+  inactiveLetters,
+  addGuessLetter,
+}: KeyboardProps) {
   return (
-    <div
-      style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(auto-fit, minmax(75px, 1fr))",
-        gap: ".5rem",
-      }}
-    >
-      {KEYS.map((letter) => (
-        <button
-          disabled
-          key={letter}
-          className="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800"
-        >
-          <span className="relative block w-full h-full px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
-            {letter}
-          </span>
-        </button>
-      ))}
+    <div className="grid grid-cols-7 md:grid-cols-9 lg:grid-cols-13 gap-2">
+      {KEYS.map((letter) => {
+        const isActive = activeLetters.includes(letter.toLowerCase());
+        const isInactive = inactiveLetters.includes(letter.toLowerCase());
+
+        return (
+          <button
+            key={letter}
+            onClick={() => !isInactive && addGuessLetter(letter.toLowerCase())}
+            className={`
+              relative inline-flex items-center justify-center p-2 overflow-hidden 
+              text-sm font-medium rounded-lg 
+              focus:outline-none transition-all ease-in duration-75
+              ${
+                isActive
+                  ? "bg-gradient-to-br from-green-400 to-blue-600 hover:from-green-500 hover:to-blue-700 text-white"
+                  : "bg-white dark:bg-gray-900 text-gray-900"
+              }
+              ${isInactive ? "opacity-50 cursor-not-allowed" : ""}
+              border border-gray-300
+            `}
+            disabled={isInactive}
+          >
+            <span className="block w-full h-full transition-all ease-in duration-75">
+              {letter}
+            </span>
+          </button>
+        );
+      })}
     </div>
   );
 }
