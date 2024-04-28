@@ -1,12 +1,12 @@
 {
+  "homepage": "https://annietran2023.github.io/Hangman-React-TS",
   "name": "hangman",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
-    "homepage": "https://annietran2023.github.io/Hangman-React-TS",
+    "deploy": "gh-pages -d dist",
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
