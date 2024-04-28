@@ -8,7 +8,7 @@ import { Keyboard } from "./Keyboard";
 function App() {
   let randomIndex = Math.floor(Math.random() * words.length);
 
-  const [wordToGuess, setWordToGuess] = useState(() => words[randomIndex]);
+  const [wordToGuess] = useState(() => words[randomIndex]);
 
   console.log(wordToGuess);
 
