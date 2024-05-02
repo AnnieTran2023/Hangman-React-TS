@@ -1,30 +1,36 @@
-# React + TypeScript + Vite
+# Hangman Game
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to Hangman! This is a classic game where you have to guess a word by suggesting letters within a limited number of attempts.
 
-Currently, two official plugins are available:
+## How to Play
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. **Objective**: Guess the word before you run out of attempts.
+<img src="hangman-main.png" alt="Hangman Main Image" style="width: 600px; height: auto">
 
-## Expanding the ESLint configuration
+2. **Gameplay**:
+   - The game will randomly select a word.
+   - You have 6 attempts to guess the word correctly.
+   - Press a letter on your keyboard to guess. If the letter is in the word, it will be revealed; otherwise, you'll lose an attempt.
+  <img src="hangman2.png" alt="Hangman Main Image" style="width: 600px; height: auto">
+   - Once a letter is guessed, it will be disabled to prevent guessing the same letter again.
+   - If you guess all the letters in the word correctly within 6 attempts, you win!
+   - If you run out of attempts without guessing the word, you lose.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+3. **End of Game**:
+   - If you win, congratulations! You guessed the word correctly.
+   - If you lose, don't worry! The correct word will be revealed, and the missing letters will be shown in red.
+   - Refresh the page to play again.
+   <img src="hangman3.png" alt="Hangman Main Image" style="width: 600px; height: auto">
 
-- Configure the top-level `parserOptions` property like this:
+## Technologies Used
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+- TypeScript
+- React.js for UI development
+- Tailwind CSS for styling
+- Vite for development and build tooling
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Play Now
+
+You can play the game directly [here](https://annietran2023.github.io/Hangman-React-TS) on GitHub Pages.
+
+
